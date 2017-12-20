@@ -1,25 +1,78 @@
 <!DOCTYPE html>
 <html lang="sv">
-  <head>
+<head>
+  <title>To do</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/libs/bootstrap-4-beta.css">
+  <!-- Application specific CSS -->
+  <link rel="stylesheet" href="/css/style.css">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/libs/bootstrap-4-beta.css">
-    <!-- Application specific CSS -->
-    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-navbar">
+      <a class="navbar-brand" href="#">Get things done!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">To Do<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About...</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-  </head>
-  <body>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto my-5">
+          <h1>To Do</h1>
+          <div class="input-group add-item-field my-3">
+            <span class="input-group-addon">+</span>
+            <input type="text" class="form-control" placeholder="Add new to do item...">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button">Add item</button>
+            </span>
+          </div>
+          <ul id="todolist">
+            <li class="list-group-item">
+              Detta är ett list item<button type="button" class="btn btn-danger remove float-right">X</button>
+            </li>
+            <li class="list-group-item">
+              Detta är ett list item<button type="button" class="btn btn-danger remove float-right">X</button>
+            </li>
+            <li class="list-group-item">
+              Detta är ett list item<button type="button" class="btn btn-danger remove float-right">X</button>
+            </li>
+            <li class="list-group-item">
+              Detta är ett list item<button type="button" class="btn btn-danger remove float-right">X</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Footer
+  </footer>
 
 
-    <!-- JavaScript libraries -->
-    <script src="/jsonflex.js"></script>
-    <script src="/js/libs/jquery-3.2.1.js"></script>
-    <script src="/js/libs/popper-1.11.0.js"></script>
-    <script src="/js/libs/bootstrap-4-beta.js"></script>
-    <!-- Application specific JavaScript -->
-    <script src="/js/main.js"></script>
-  </body>
+  <!-- JavaScript libraries -->
+  <script src="/jsonflex.js"></script>
+  <script src="/js/libs/jquery-3.2.1.js"></script>
+  <script src="/js/libs/popper-1.11.0.js"></script>
+  <script src="/js/libs/bootstrap-4-beta.js"></script>
+  <!-- Application specific JavaScript -->
+  <script src="/js/main.js"></script>
+</body>
 </html>

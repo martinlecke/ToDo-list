@@ -1,0 +1,28 @@
+// Main
+main {
+  flex-grow: 1;
+
+  .list-group-item {
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.7);
+    &:not(:last-child) {
+      margin-bottom: 3px;
+    }
+    .btn {
+      padding: 2px 7px;
+    }
+  }
+
+  #todolist {
+    width: 100%;
+  }
+
+  .add-item-field {
+    .input-group-addon,
+    .form-control,
+    .btn {
+      background: #7ca7b6;
+      color: white;
+    }
+  }
+}
