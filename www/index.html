@@ -8,6 +8,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/css/libs/bootstrap-4-beta.css">
   <!-- Application specific CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -38,11 +39,19 @@
           <h1>To Do</h1>
           <div class="input-group add-item-field my-3">
             <span class="input-group-addon">+</span>
-            <input type="text" class="form-control" placeholder="Add new to do item...">
+            <input type="text" class="form-control addnew" placeholder="Add new to do item..." autofocus>
             <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Add item</button>
+              <button class="btn btn-secondary addnewbtn" type="button">Add item</button>
             </span>
           </div>
+          <ul id="todolist">
+            <li class="list-group-item">
+              <strong>Holy crap!</strong> The javascript is broken! Call someone!
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-8 mx-auto mb-5">
+          <h2>Done</h2>
           <ul id="todolist">
             <li class="list-group-item">
               Detta är ett list item<button type="button" class="btn btn-danger remove float-right">X</button>
@@ -57,7 +66,6 @@
               Detta är ett list item<button type="button" class="btn btn-danger remove float-right">X</button>
             </li>
           </ul>
-        </div>
       </div>
     </div>
   </main>
@@ -73,6 +81,8 @@
   <script src="/js/libs/popper-1.11.0.js"></script>
   <script src="/js/libs/bootstrap-4-beta.js"></script>
   <!-- Application specific JavaScript -->
+  <script src="/js/classes/item.class.js"></script>
+  <script src="/js/classes/list.class.js"></script>
   <script src="/js/main.js"></script>
 </body>
 </html>

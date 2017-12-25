@@ -15,6 +15,7 @@ main {
 
   #todolist {
     width: 100%;
+    padding-left: 0;
   }
 
   .add-item-field {
@@ -23,6 +24,57 @@ main {
     .btn {
       background: #7ca7b6;
       color: white;
+    }
+  }
+  .list-item:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8)
+  }
+  .menuitems {
+    button:not(:last-child) {
+    margin-left: 5px;
+  }
+    button {
+      cursor: pointer;
+    }
+    button:hover {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+  }
+  .addnew {
+    height: 50px;
+    font-size: 1.5em;
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+    &:focus {
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+  .addnewbtn {
+    height: 50px;
+    cursor: pointer;
+    &:focus {
+      .box-shadow-inset;
+    }
+  }
+  .completebtn {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid gray;
+    cursor: pointer;
+    background: none;
+    margin-left: -5px;
+    margin-right: 5px;
+    margin-top: -2px;
+    height:15px;
+    width: 15px;
+    &:hover {
+      background: #71ae8c;
+      border-color: #71ae8c;
+      box-shadow: 0 0 5px rgba(113, 174, 114, 0.3);
+    }
+    &.completed {
+      background: #71ae8c;
+      border-color: #71ae8c;
     }
   }
 }
