@@ -13,7 +13,7 @@ main {
     }
   }
 
-  #todolist {
+  #todolist, #donelist {
     width: 100%;
     padding-left: 0;
   }
@@ -75,6 +75,45 @@ main {
     &.completed {
       background: #71ae8c;
       border-color: #71ae8c;
+    }
+  }
+  .push-donelist {
+    text-align: center;
+    button {
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      padding: 5px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      &:hover {
+        background: rgba(255, 255, 255, 0.1)
+      }
+      &:active {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .emptyDoneBtn {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 18px;
+    cursor: pointer;
+    &:hover {
+      background: rgba(255, 255, 255, 0.1)
+    }
+    &:active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    &:focus {
+      outline: none;
     }
   }
 }

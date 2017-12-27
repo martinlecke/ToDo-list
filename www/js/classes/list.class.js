@@ -28,12 +28,21 @@ removeFromList(index){
 }
 
 completeItem(index) {
-  this.items[index].completed = true;
+  if (this.items[index].completed) {
+    this.items[index].completed = false;
+  } else {
+    this.items[index].completed = true;
+  }
   return this.items;
 }
 
-removeFromListAndAddToDone(item){
-  this.items.push(removeFromListByName(item));
+addCompletedToDone(){
+  for (let i = 0; i < this.items.length; i++) {
+    if (this.items[i].completed) {
+      donelist.items.push(this.items[i]);
+      todolist.items.splice(i, 1);
+    }
+  }
   return this.items;
 }
 

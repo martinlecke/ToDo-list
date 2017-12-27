@@ -1,10 +1,12 @@
 let todolist = new List();
+let donelist = new List();
 let itemone = new Item('Lägga upp matbilder på instagram');
 let itemtwo = new Item('Köpa julklappar');
 let itemthree = new Item('Klippa gräset');
 let itemfour = new Item('Klippa till grannen');
 let itemfive = new Item('Läsa javascript hela julen');
 let itemsix = new Item('Fixa till så det finns en Done list');
+itemfour.completed = true;
 
 todolist.addItem(itemone);
 todolist.addItem(itemtwo);
@@ -13,11 +15,14 @@ todolist.addItem(itemfour);
 todolist.addItem(itemfive);
 todolist.addItem(itemsix);
 
+
 function renderList() {
   $('#todolist').empty();
+  $('#donelist').empty();
+  $('.push-donelist').hide();
   let dataNumber = 0;
   for (item of todolist.items) {
-    console.log(item.completed);
+    // render todolist
     let code = `
       <li class="list-group-item list-item"><button type="button" class="btn btn-secondary completebtn `;
       if (item.completed) {
@@ -43,10 +48,34 @@ function renderList() {
         </button>`;
     }
     code += `</div></li>`;
+    if (item.completed) {
+      $('.push-donelist').fadeIn('slow');
+    }
     $('#todolist').append(code);
     dataNumber++;
-
   }
+
+  for (item of donelist.items) {
+    // render donelist
+    let code = `
+      <li class="list-group-item list-item"><button type="button" class="btn btn-secondary completebtn `;
+      if (item.completed) {
+        code += 'completed';
+      }
+      code += `
+        " data-index="${dataNumber}"></button>
+        ${item.description} 
+        `;
+    code += `</div></li>`;
+    $('#donelist').append(code);
+  }
+    dataNumber++;
+    if (dataNumber > 0) {
+      $('.emptyDoneBtn').fadeIn('slow');
+
+    }
+
+
   //hides menu items with jQuery instead of CSS because of loadtime
   $(document).find('.menuitems').hide();
 }
@@ -64,6 +93,14 @@ function listeners() {
     $(this).parent().parent().fadeOut(500);
     let index = $(this).data('index');
     todolist.removeFromList(index);
+    setTimeout(() => { 
+      // rerenders after animation is made
+      renderList();
+    }, 500);
+  });
+  $(document).on('click', '.emptyDoneBtn', function() {
+    $('#donelist').fadeOut(500);
+    donelist.items.splice(0, donelist.items.length);
     setTimeout(() => { 
       // rerenders after animation is made
       renderList();
@@ -110,7 +147,10 @@ function listeners() {
     todolist.completeItem(index);
     renderList();
   });
-
+  $(document).on('click', '.push-donelist-btn', function() {
+    todolist.addCompletedToDone();
+    renderList();
+  });
 }
 
 renderList();
