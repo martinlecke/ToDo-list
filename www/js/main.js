@@ -1,25 +1,13 @@
-let todolist = new List();
-let donelist = new List();
-let itemone = new Item('Lägga upp matbilder på instagram');
-let itemtwo = new Item('Köpa julklappar');
-let itemthree = new Item('Klippa gräset');
-let itemfour = new Item('Klippa till grannen');
-let itemfive = new Item('Läsa javascript hela julen');
-let itemsix = new Item('Fixa till så det finns en Done list');
-itemfour.completed = true;
+let todolist = new List('todolist');
+let donelist = new List('donelist');
 
-todolist.addItem(itemone);
-todolist.addItem(itemtwo);
-todolist.addItem(itemthree);
-todolist.addItem(itemfour);
-todolist.addItem(itemfive);
-todolist.addItem(itemsix);
 
 
 function renderList() {
   $('#todolist').empty();
   $('#donelist').empty();
   $('.push-donelist').hide();
+
   let dataNumber = 0;
   for (item of todolist.items) {
     // render todolist
@@ -78,6 +66,7 @@ function renderList() {
 
   //hides menu items with jQuery instead of CSS because of loadtime
   $(document).find('.menuitems').hide();
+  saveJSON();
 }
 
 function listeners() {
@@ -99,12 +88,12 @@ function listeners() {
     }, 500);
   });
   $(document).on('click', '.emptyDoneBtn', function() {
-    $('#donelist').fadeOut(500);
-    donelist.items.splice(0, donelist.items.length);
-    setTimeout(() => { 
-      // rerenders after animation is made
-      renderList();
-    }, 500);
+      $('#donelist').fadeOut(500);
+      donelist.items.splice(0, donelist.items.length);
+      setTimeout(() => { 
+        // rerenders after animation is made
+        renderList();
+      }, 500);
   });
   // Moves up in list
   $(document).on('click', '.moveup', function() {
@@ -124,6 +113,7 @@ function listeners() {
     if ($selector.val() !== '') {
       let newitem = new Item($selector.val());
       todolist.addItem(newitem);
+      recentAdd(newitem.description);
       $selector.val('');
       renderList();
     }
@@ -134,6 +124,7 @@ function listeners() {
     if ($selector.val() !== '' && e.key == 'Enter') {
       let newitem = new Item($selector.val());
       todolist.addItem(newitem);
+      recentAdd(newitem.description);
       $('.addnewbtn').addClass('box-shadow-inset');
       setTimeout(() => { 
         $('.addnewbtn').removeClass('box-shadow-inset');
@@ -153,5 +144,24 @@ function listeners() {
   });
 }
 
-renderList();
+function recentAdd(val) {
+  $('.recent-add').html('You added: ' + val).slideDown().fadeIn().delay(2000).slideUp();
+}
+
 listeners();
+
+// JSON Flex functions
+function saveJSON(){
+  todolist.writeJSON();
+  donelist.writeJSON();
+}
+
+function renderJSON(){
+  todolist.loadJSON(function(loadedItems){
+    renderList();
+  });
+  // Arrow function
+  donelist.loadJSON(loadedItems => renderList());
+}
+
+renderJSON();

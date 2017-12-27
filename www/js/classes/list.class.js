@@ -1,24 +1,13 @@
 class List {
 
-  constructor() {
+  constructor(jsonfile) {
     this.items = [];
+    this.jsonfile = jsonfile;
   }
 
 addItem(item){
   this.items.push(item);
   return this.items;
-}
-
-addToTopOfList(item){
-  this.items.unshift(item);
-  return this.items;
-}
-removeFromBottomOfList(){
-  return this.items.pop();
-}
-
-removeFromTopOfList(){
-  return this.items.shift();
 }
 
 removeFromList(index){
@@ -46,12 +35,6 @@ addCompletedToDone(){
   return this.items;
 }
 
-moveToTop(item){
-  this.addToTopOfList(removeFromListByName(item));
-  return this.items;
-}
-
-
 moveDown(index){
   let item = this.items[index];
   if(index + 1 < this.items.length){
@@ -70,4 +53,35 @@ moveUp(index){
   return this.items;
 }
 
+
+// JSON Flex functions 
+
+  addForJSON(items){
+      for (let i = 0; i < items.length; i++){
+        let item = new Item();
+        item.description = items[i].description;
+        item.completed = items[i].completed;
+        this.addItem(item);
+      }
+  }
+  removeForJSON(){
+    //Empty lists for JSON add
+    this.items.splice(0, this.items.length);
+  }
+
+  loadJSON(callback){
+    JSON._load(this.jsonfile)
+    .then((data) => {
+      this.removeForJSON();
+      this.addForJSON(data.items);
+      callback(data.items);
+    });
+  }
+
+  writeJSON(){
+    JSON._save(this.jsonfile, {
+        items: this.items
+    });
+  }
+  
 }

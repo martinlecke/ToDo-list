@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "description": "VG krav uppfyllda",
+      "completed": false
+    },
+    {
+      "description": "Kolla så godkänd kraven uppfyllda",
+      "completed": false
+    },
+    {
+      "description": "Buggtesta",
+      "completed": false
+    },
+    {
+      "description": "Responsivitet",
+      "completed": false
+    },
+    {
+      "description": "Snygga upp i kod",
+      "completed": false
+    },
+    {},
+    {
+      "description": "Dubbelklicka på listobjekt för att göra Completed True",
+      "completed": false
+    }
+  ]
+}
