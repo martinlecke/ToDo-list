@@ -13,6 +13,7 @@
 
 </head>
 <body>
+
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-navbar">
       <a class="navbar-brand" href="#">Get things done!</a>
@@ -25,7 +26,7 @@
             <a class="nav-link" href="#">To Do<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About...</a>
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#howto">How to..</a>
           </li>
         </ul>
       </div>
@@ -66,9 +67,39 @@
   </main>
 
   <footer>
-    Footer
+ 
   </footer>
 
+
+<!-- Modal -->
+<div class="modal fade" id="howto" tabindex="-1" role="dialog" aria-labelledby="howtoTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">How to...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-muted">
+        <h5>To do</h5>
+        <h6>Add items</h6>
+        <p>You can add items by typing in the textfield and either press the button <strong>Add Item</strong> or press <strong>Enter</strong>-key.</p>
+        <h6>Move items</h6>
+        <p>All items you can move up or down. Items in top of the list and bottom of the list dont have buttons for getting any higher up and lower in the list.</p>
+        <h6>Delete items</h6>
+        <p>By hovering over the specific item there is a menu popping up, by pushing the trashcan icon you remove the item.</p>
+        <h6>Complete items</h6>
+        <p>By pressing the left square, you mark the current item <strong>Completed</strong> and the square turns <em>green</em>.</p>
+        <h5>Done</h5>
+        <h6>Move to done</h6>
+        <p>When there is completed items in your to do list, a button turns up in the bottom of the list. By pressing <strong>Push completed tasks to Done</strong> you move completed items to your Done list.</p>
+        <h6>Empty Done list</h6>
+        <p>To clear your done list from old completed task press the <strong>Trash can</strong> at top of the done list.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- JavaScript libraries -->
   <script src="/js/jsonflex.js"></script>

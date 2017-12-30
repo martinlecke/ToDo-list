@@ -1,28 +1,23 @@
 {
   "items": [
     {
-      "description": "VG krav uppfyllda",
+      "description": "Läsa JavaScript läxa",
+      "completed": true
+    },
+    {
+      "description": "Klä granen",
       "completed": false
     },
     {
-      "description": "Kolla så godkänd kraven uppfyllda",
+      "description": "Klä grannen!",
       "completed": false
     },
     {
-      "description": "Buggtesta",
+      "description": "Slå in julklappar",
       "completed": false
     },
     {
-      "description": "Responsivitet",
-      "completed": false
-    },
-    {
-      "description": "Snygga upp i kod",
-      "completed": false
-    },
-    {},
-    {
-      "description": "Dubbelklicka på listobjekt för att göra Completed True",
+      "description": "Pröva att lägga till saker i listan",
       "completed": false
     }
   ]

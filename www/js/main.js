@@ -6,41 +6,49 @@ let donelist = new List('donelist');
 function renderList() {
   $('#todolist').empty();
   $('#donelist').empty();
-  $('.push-donelist').hide();
+  $('.push-donelist').hide(); // Hides in jquery cause the icons loads in before hand
 
   let dataNumber = 0;
-  for (item of todolist.items) {
-    // render todolist
+  if (todolist.items.length == 0) {
     let code = `
-      <li class="list-group-item list-item"><button type="button" class="btn btn-secondary completebtn `;
-      if (item.completed) {
-        code += 'completed';
-      }
-        code += `
-          " data-index="${dataNumber}"></button>
-          ${item.description} 
-        <div class="menuitems float-right">
-          <button type="button" class="btn btn-danger remove float-right" data-index="${dataNumber}">
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
-        </button>`;
-    if (dataNumber !== 0) {
-      code += `
-        <button type="button" class="btn btn-secondary moveup float-right" data-index="${dataNumber}">
-          <i class="fa fa-arrow-up" aria-hidden="true"></i>
-        </button>
-      `}
-    if (dataNumber !== todolist.items.length - 1) {
-      code += `
-        <button type="button" class="btn btn-secondary movedown float-right" data-index="${dataNumber}">
-          <i class="fa fa-arrow-down" aria-hidden="true"></i>
-        </button>`;
-    }
-    code += `</div></li>`;
-    if (item.completed) {
-      $('.push-donelist').fadeIn('slow');
-    }
+      <li class="list-group-item list-item">
+      You have nothing to do, what about to add some tasks...
+      </li>`;
     $('#todolist').append(code);
-    dataNumber++;
+  } else {
+    for (item of todolist.items) {
+      // render todolist
+      let code = `
+        <li class="list-group-item list-item"><button type="button" class="btn btn-secondary completebtn `;
+        if (item.completed) {
+          code += 'completed';
+        }
+          code += `
+            " data-index="${dataNumber}"></button>
+            ${item.description} 
+          <div class="menuitems float-right">
+            <button type="button" class="btn btn-danger remove float-right" data-index="${dataNumber}">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </button>`;
+      if (dataNumber !== 0) {
+        code += `
+          <button type="button" class="btn btn-secondary moveup float-right" data-index="${dataNumber}">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+          </button>
+        `}
+      if (dataNumber !== todolist.items.length - 1) {
+        code += `
+          <button type="button" class="btn btn-secondary movedown float-right" data-index="${dataNumber}">
+            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+          </button>`;
+      }
+      code += `</div></li>`;
+      if (item.completed) {
+        $('.push-donelist').fadeIn('slow');
+      }
+      $('#todolist').append(code);
+      dataNumber++;
+    }
   }
 
   for (item of donelist.items) {
@@ -88,8 +96,8 @@ function listeners() {
     }, 500);
   });
   $(document).on('click', '.emptyDoneBtn', function() {
-      $('#donelist').fadeOut(500);
       donelist.items.splice(0, donelist.items.length);
+      $('#donelist').fadeOut(500).fadeIn();
       setTimeout(() => { 
         // rerenders after animation is made
         renderList();
@@ -163,5 +171,6 @@ function renderJSON(){
   // Arrow function
   donelist.loadJSON(loadedItems => renderList());
 }
+
 
 renderJSON();
