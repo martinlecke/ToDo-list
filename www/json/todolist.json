@@ -1,23 +1,11 @@
 {
   "items": [
     {
-      "description": "Läsa JavaScript läxa",
-      "completed": true
-    },
-    {
-      "description": "Klä granen",
-      "completed": false
-    },
-    {
-      "description": "Klä grannen!",
-      "completed": false
-    },
-    {
-      "description": "Slå in julklappar",
-      "completed": false
-    },
-    {
       "description": "Pröva att lägga till saker i listan",
+      "completed": false
+    },
+    {
+      "description": "With alots of n's",
       "completed": false
     }
   ]

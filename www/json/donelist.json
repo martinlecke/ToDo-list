@@ -1,11 +1,35 @@
 {
   "items": [
     {
-      "description": "Fixa klart Todolista för att lämna in",
+      "description": "Klä grannen!",
       "completed": true
     },
     {
-      "description": "Modal i menyn för instruktioner",
+      "description": "Läsa JavaScript läxa",
+      "completed": true
+    },
+    {
+      "description": "hgvjhg",
+      "completed": true
+    },
+    {
+      "description": "esfdsf",
+      "completed": true
+    },
+    {
+      "description": "dfsdf",
+      "completed": true
+    },
+    {
+      "description": "sdfds",
+      "completed": true
+    },
+    {
+      "description": "dsfdsf",
+      "completed": true
+    },
+    {
+      "description": "Dennnis",
       "completed": true
     }
   ]

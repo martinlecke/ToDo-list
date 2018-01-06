@@ -5,12 +5,12 @@ class List {
     this.jsonfile = jsonfile;
   }
 
-addItem(item){
+addItem(item) {
   this.items.push(item);
   return this.items;
 }
 
-removeFromList(index){
+removeFromList(index) {
   if(index >= 0){
     return this.items.splice(index,1);
   }
@@ -83,5 +83,5 @@ moveUp(index){
         items: this.items
     });
   }
-  
+
 }

@@ -79,7 +79,7 @@ function renderList() {
 
 function listeners() {
   $(document).on('mouseenter', '.list-item', function() {
-    $(this).find('.menuitems').fadeIn(200);
+    $(this).find('.menuitems').show();
   });
   $(document).on('mouseleave', '.list-item', function() {
     $(this).find('.menuitems').hide();
